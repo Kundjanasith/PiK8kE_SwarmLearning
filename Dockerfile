@@ -1,6 +1,9 @@
 FROM tensorflow/tensorflow
 
-COPY . .
-WORKDIR ./learning/client/
+EXPOSE 19191
 
-RUN python3 train.py
+COPY . .
+
+ENTRYPOINT ["./config.ini"]
+
+WORKDIR ./learning/
