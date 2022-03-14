@@ -4,7 +4,7 @@ from tensorflow.keras import Model
 from tensorflow.keras.optimizers import SGD
 
 def init():
-    model = MobileNet(include_top=False,input_tensor=Input(shape=(32,32,3)))
+    model = MobileNet(include_top=True,input_tensor=Input(shape=(32,32,3)))
     x = model.output
     x = Flatten()(x)
     x = Dense(512,activation='relu')(x)
