@@ -37,8 +37,6 @@ def sampling_data():
 x_train, y_train = sampling_data()
 
 m = model.init()
-print(m.input_shape,m.output_shape)
-print(x_train.shape,y_train.shape)
 
 LOCAL_EPOCHS = int(config['learning']['local_epoch'])
 BATCH_SIZE = int(config['learning']['batch_size'])

@@ -13,6 +13,6 @@ def init():
     model = Model(model.input,x)
     LOSS = 'categorical_crossentropy' 
     lr = 0.000025
-    OPTIMIZER = SGD(lr=lr, momentum=0.9, nesterov=False)
+    OPTIMIZER = SGD(learning_rate=lr, momentum=0.9, nesterov=False)
     model.compile(optimizer=OPTIMIZER, loss=LOSS, metrics=['accuracy'])
     return model
