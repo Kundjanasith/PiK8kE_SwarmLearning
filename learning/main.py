@@ -1,16 +1,9 @@
-import requests
-import configparser
+import configparser, os
 
 def internet_on(ip):
-    url = 'http://'+ip+':19191'
-    timeout = 5
-    result = None
-    try:
-        request = requests.get(url, timeout=timeout)
-        result = 'Connected'
-    except (requests.ConnectionError, requests.Timeout) as exception:
-        result = 'Not Connected'
-    return result
+    hostname = ip
+    response = os.system("ping -c 1 " + hostname)   
+    return response
 
 config = configparser.ConfigParser()
 config.read('../config.ini')
@@ -22,5 +15,9 @@ list_config_ip.pop(0)
 list_config_ip.pop(int(node)-1)
 for i in list_config_ip:
     ip = config['network'][i]
-    print(ip,internet_on(ip))
+    response = internet_on(ip)
+    if response == 0:
+        print(ip,'is up!')
+    else:
+        print(ip,'is down!')
     
