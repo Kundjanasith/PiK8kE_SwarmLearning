@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 tensorflow/tensorflow
+FROM --platform=linux/arm64/v8 tensorflow/tensorflow
 
 EXPOSE 19191
 
