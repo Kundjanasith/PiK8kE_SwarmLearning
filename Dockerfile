@@ -8,3 +8,4 @@ EXPOSE 19190, 19191
 
 COPY . .
 
+CMD ["bin/bash"]
