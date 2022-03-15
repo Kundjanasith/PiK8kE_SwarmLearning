@@ -3,7 +3,7 @@ import tqdm
 import os
 import sys 
 
-ip = sys.argv[0]
+ip = sys.argv[1]
 
 SEPARATOR = "<SEPARATOR>"
 BUFFER_SIZE = 4096 # send 4096 bytes each time step
@@ -13,7 +13,7 @@ host = ip
 # the port, let's use 5001
 port = 19191
 # the name of file we want to send, make sure it exists
-filename = sys.argv[1]
+filename = sys.argv[2]
 # get the file size
 filesize = os.path.getsize(filename)
 

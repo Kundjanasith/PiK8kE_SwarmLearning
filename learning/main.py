@@ -19,8 +19,8 @@ def allConnected():
     list_config_ip = list(config['network'])
     list_config_ip.pop(0)
     list_config_ip.pop(int(node)-1)
-    
     while True:
+        active_ip = []
         time.sleep(10)
         dateTimeObj = datetime.now()
         print(dateTimeObj,'Retry . . .')
@@ -31,6 +31,7 @@ def allConnected():
             if response:
                 print(ip,'is up!')
                 res = res + 1
+                active_ip.append(ip)
             else:
                 print(ip,'is down!')
         if res == 1:
@@ -38,15 +39,18 @@ def allConnected():
             break
         # if res == len(list_config_ip):
         #     break
+    return active_ip
 
 NUM_OF_ROUNDS = int(config['learning']['num_of_rounds'])
 
+os.system('screen -S server_ftp python3 ./transfer/server.py')
 for i in range(NUM_OF_ROUNDS):
     print('Communication round: #',i)
-    # allConnected()
+    active_ip = allConnected()
     os.system('python3 client/train.py '+str(i))
     time.sleep(10) #Delay for storing the local model
-    
+    for ip in active_ip:
+        os.system('python3 ./transfer/client.py '+ip+' ./client/models/round_'+str(i+1)+'.h5')
 
     break
         

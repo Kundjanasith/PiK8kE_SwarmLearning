@@ -12,7 +12,7 @@ RUN python3 -m pip install tqdm
 RUN apt-get -y install openssh-client
 RUN apt-get -y install nano
 RUN apt-get -y install ftp
-
+RUN apt-get -y install screen
 
 EXPOSE 19190
 EXPOSE 19191
