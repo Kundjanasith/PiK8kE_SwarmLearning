@@ -7,9 +7,11 @@ RUN apt-get -y install apt-utils
 RUN apt-get -y install iputils-ping
 RUN apt-get -y install telnet
 RUN apt-get -y install python3
+RUN apt-get -y install openssh-client
+
 
 EXPOSE 19190
-EXPOSE 19191
+EXPOSE 22
 
 COPY . .
 

@@ -33,13 +33,21 @@ def allConnected():
                 res = res + 1
             else:
                 print(ip,'is down!')
-        if res == len(list_config_ip):
+        if res == 1:
+            print('P2P')
             break
+        # if res == len(list_config_ip):
+        #     break
 
 NUM_OF_ROUNDS = int(config['learning']['num_of_rounds'])
 
 for i in range(NUM_OF_ROUNDS):
-    allConnected()
+    print('Communication round: #',i)
+    # allConnected()
+    os.system('python3 client/train.py '+str(i))
+    time.sleep(10) #Delay for storing the local model
+    
+
     break
         
 

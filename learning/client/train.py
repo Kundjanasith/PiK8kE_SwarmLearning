@@ -5,9 +5,12 @@ import model
 from tensorflow.keras.utils import to_categorical
 import random
 import numpy as np
+import sys
+
+num_of_round = int(sys.argv[1])
 
 config = configparser.ConfigParser()
-config.read('../../config.ini')
+config.read('../config.ini')
 print(config.sections())
 
 def load_dataset():
@@ -41,4 +44,7 @@ m = model.init()
 LOCAL_EPOCHS = int(config['learning']['local_epoch'])
 BATCH_SIZE = int(config['learning']['batch_size'])
 
+if num_of_round != 0:
+    m.load_weights('./server/models/round_'+str(num_of_round)+'.h5')
 m.fit(x_train, y_train, epochs=LOCAL_EPOCHS, batch_size=BATCH_SIZE, verbose=1, validation_split=0.2)
+m.save_weights('./client/models/round_'+str(num_of_round+1)+'.h5')
