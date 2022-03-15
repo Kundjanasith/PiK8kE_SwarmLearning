@@ -8,10 +8,12 @@ RUN apt-get -y install iputils-ping
 RUN apt-get -y install telnet
 RUN apt-get -y install python3
 RUN apt-get -y install openssh-client
+RUN apt-get -y install ftp
 
 
 EXPOSE 19190
-EXPOSE 22
+EXPOSE 19191
+EXPOSE 19192
 
 COPY . .
 
