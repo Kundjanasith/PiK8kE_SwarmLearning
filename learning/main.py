@@ -1,5 +1,6 @@
 import configparser, os, socket, time
 from datetime import datetime
+import subprocess
 
 config = configparser.ConfigParser()
 config.read('../config.ini')
@@ -43,7 +44,8 @@ def allConnected():
 
 NUM_OF_ROUNDS = int(config['learning']['num_of_rounds'])
 
-os.system('screen -S server_ftp python3 ./transfer/server.py')
+subprocess.Popen(['python3','./transfer/server.py'], close_fds=True)
+
 for i in range(NUM_OF_ROUNDS):
     print('Communication round: #',i)
     active_ip = allConnected()
