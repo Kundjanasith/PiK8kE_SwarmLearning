@@ -1,4 +1,4 @@
-import configparser, os
+import configparser, os, socket
 
 def internet_on(ip):
     hostname = ip
