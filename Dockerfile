@@ -1,7 +1,10 @@
-FROM --platform=linux/arm64/v8 tensorflow/tensorflow
+# FROM --platform=linux/arm64/v8 tensorflow/tensorflow
+FROM ubuntu
 
-EXPOSE 19191
+RUN apt-get update
+RUN apt-get -y install iputils-ping
+
+EXPOSE 19190, 19191
 
 COPY . .
 
-WORKDIR ./learning/
