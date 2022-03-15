@@ -7,7 +7,10 @@ RUN apt-get -y install apt-utils
 RUN apt-get -y install iputils-ping
 RUN apt-get -y install telnet
 RUN apt-get -y install python3
+RUN apt-get -y install python3-pip
+RUN python3 -m pip install tqdm
 RUN apt-get -y install openssh-client
+RUN apt-get -y install nano
 RUN apt-get -y install ftp
 
 
