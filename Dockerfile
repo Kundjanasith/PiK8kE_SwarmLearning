@@ -2,6 +2,7 @@ FROM ubuntu
 
 RUN apt-get upgrade
 RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
 RUN apt-get -y install apt-utils
 RUN apt-get -y install iputils-ping
 RUN apt-get -y install telnet
