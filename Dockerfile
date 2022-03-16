@@ -23,19 +23,19 @@ RUN python3 -m pip install pybind11
 RUN python3 -m pip install h5py==2.10.0
 RUN python3 -m pip install --upgrade setuptools
 RUN python3 -m pip install gdown
-RUN gdown https://drive.google.com/uc?id=11mujzVaFqa7R1_lB7q0kVPW22Ol51MPg
-RUN python3 -m pip install tensorflow-2.2.0-cp37-cp37m-linux_armv7l.whl wrapt --upgrade --ignore-installed
+RUN gdown https://drive.google.com/uc?id=13_otGSGrsE1atBB2RjcPhOvONErKSFef
+RUN python3 -m pip install tensorflow-2.6.0-cp38-cp38-linux_aarch64.whl wrapt --upgrade --ignore-installed
 
-# RUN apt-get -y install openssh-client
-# RUN apt-get -y install nano
-# RUN apt-get -y install ftp
-# RUN apt-get -y install screen
-# RUN apt-get -y install git
+RUN apt-get -y install openssh-client
+RUN apt-get -y install nano
+RUN apt-get -y install ftp
+RUN apt-get -y install screen
+RUN apt-get -y install git
 
-# EXPOSE 19190
-# EXPOSE 19191
-# EXPOSE 19192
+EXPOSE 19190
+EXPOSE 19191
+EXPOSE 19192
 
-# COPY . .
+COPY . .
 
-# CMD ["bin/bash"]
+CMD ["bin/bash"]
