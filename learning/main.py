@@ -55,7 +55,6 @@ for i in range(NUM_OF_ROUNDS):
         os.system('python3 ./transfer/client.py '+ip+' ./client/models/round_'+str(i+1)+'.h5')
     time.sleep(10) #Delay for storing the local model
     os.system('python3 server/aggregate.py '+str(i+1))
-    break
         
 
 
