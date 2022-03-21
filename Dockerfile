@@ -24,8 +24,8 @@ RUN python3 -m pip install h5py==2.10.0
 RUN python3 -m pip install --upgrade setuptools
 RUN python3 -m pip install gdown
 RUN gdown https://drive.google.com/uc?id=1uLtmdjGc-wtliRrXPf_3deUetujDKjcI
-RUN python3 -m pip install numpy==1.22.0
 RUN python3 -m pip install tensorflow-2.4.0-cp38-cp38-linux_aarch64.whl
+RUN python3 -m pip install numpy==1.22.0
 
 RUN apt-get -y install openssh-client
 RUN apt-get -y install nano
