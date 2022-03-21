@@ -38,7 +38,6 @@ for i in range(NUM_OF_ROUNDS):
     global_model = model.init()
     global_score = global_model.evaluate(X_test,Y_test)
     global_res.append(global_score)
-    break
 
 local_res = np.array(local_res)
 global_res = np.array(global_res)
