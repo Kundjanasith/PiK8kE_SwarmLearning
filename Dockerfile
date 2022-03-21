@@ -23,8 +23,9 @@ RUN python3 -m pip install pybind11
 RUN python3 -m pip install h5py==2.10.0
 RUN python3 -m pip install --upgrade setuptools
 RUN python3 -m pip install gdown
-RUN gdown https://drive.google.com/uc?id=13_otGSGrsE1atBB2RjcPhOvONErKSFef
-RUN python3 -m pip install tensorflow-2.6.0-cp38-cp38-linux_aarch64.whl wrapt --upgrade --ignore-installed
+RUN gdown https://drive.google.com/uc?id=1uLtmdjGc-wtliRrXPf_3deUetujDKjcI
+RUN python3 -m pip install numpy==1.22.0
+RUN python3 -m pip install tensorflow-2.4.0-cp38-cp38-linux_aarch64.whl
 
 RUN apt-get -y install openssh-client
 RUN apt-get -y install nano
