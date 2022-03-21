@@ -25,7 +25,7 @@ while True:
     # accept connection if there is any
     client_socket, address = s.accept() 
     # if below code is executed, that means the sender is connected
-    print(f"[+] {address} is connected.")
+    print(f"[+] {client_socket} {address} is connected.")
 
     # receive the file infos
     # receive using client socket, not server socket
@@ -33,14 +33,13 @@ while True:
     filename, filesize = received.split(SEPARATOR)
     # remove absolute path if there is
     filename = os.path.basename(filename)
-    filename = address+'-'+filename
     # convert to integer
     filesize = int(filesize)
 
     # start receiving the file from the socket
     # and writing to the file stream
     progress = tqdm.tqdm(range(filesize), f"Receiving {filename}", unit="B", unit_scale=True, unit_divisor=1024)
-    with open(filename, "wb") as f:
+    with open('./transfer/models/'+filename, "wb") as f:
         while True:
             # read 1024 bytes from the socket (receive)
             bytes_read = client_socket.recv(BUFFER_SIZE)
