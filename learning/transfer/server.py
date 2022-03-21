@@ -33,6 +33,7 @@ while True:
     filename, filesize = received.split(SEPARATOR)
     # remove absolute path if there is
     filename = os.path.basename(filename)
+    filename = address+'-'+filename
     # convert to integer
     filesize = int(filesize)
 
