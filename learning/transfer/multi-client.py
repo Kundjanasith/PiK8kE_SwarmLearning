@@ -1,6 +1,10 @@
 import socket
 import sys 
+import configparser
 
+config = configparser.ConfigParser()
+config.read('../config.ini')
+print(config.sections())
 SERVER = sys.argv[1]
 PORT = 19191
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
