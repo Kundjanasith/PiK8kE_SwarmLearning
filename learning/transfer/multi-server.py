@@ -14,6 +14,8 @@ class ClientThread(threading.Thread):
         ipx, filename = received.split(bytes(SEPARATOR,'UTF-8'))
         # print(ipx,filename,filesize)
         filename = os.path.basename(filename)
+        ipx = ipx.decode('UTF-8')
+        filename = filename.decode('UTF-8')
         # filesize = int(filesize)
         with open('./transfer/models/'+ipx+'-'+filename, "wb") as f:
             while True:
