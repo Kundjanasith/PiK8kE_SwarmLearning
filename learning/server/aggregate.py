@@ -1,4 +1,4 @@
-import sys, configparser, glob
+import sys, configparser, glob, os
 import model
 import numpy as np
 
@@ -52,6 +52,8 @@ for l in local_model.layers:
     local_model.get_layer(index=l_idx).set_weights(w_arr)
 
 local_model.save_weights('./server/models/round_'+str(num_of_round)+'.h5')
+
+os.system('rm -rf ./transfer/models/*')
 
 
 
