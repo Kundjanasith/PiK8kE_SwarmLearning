@@ -32,7 +32,7 @@ for i in range(NUM_OF_ROUNDS):
     print('Communication round: #',i)
 
     local_model = model.init()
-    local_model.load_weights('./learning/cleints/models/round_'+str(i+1)+'.h5')
+    local_model.load_weights('./learning/client/models/round_'+str(i+1)+'.h5')
     local_score = local_model.evaluate(X_test,Y_test)
     local_res.append(local_score)
 
