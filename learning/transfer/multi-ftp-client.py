@@ -37,12 +37,22 @@ def main():
         elif cmd == "UPLOAD":
             path = data[1]
 
-            with open(f"{path}", "r") as f:
-                text = f.read()
+            # with open(f"{path}", "r") as f:
+            #     text = f.read()
 
-            filename = path.split("/")[-1]
-            send_data = f"{cmd}@{filename}@{text}"
-            client.send(send_data.encode(FORMAT))
+            # filename = path.split("/")[-1]
+            # send_data = f"{cmd}@{filename}@{text}"
+            # client.send(send_data.encode(FORMAT))
+            with open(path, "rb") as f:
+                while True:
+                    # read the bytes from the file
+                    bytes_read = f.read(SIZE)
+                    if not bytes_read:
+                        # file transmitting is done
+                        break
+                    # we use sendall to assure transimission in 
+                    # busy networks
+                    s.sendall(bytes_read)
 
     print("Disconnected from the server.")
     client.close()

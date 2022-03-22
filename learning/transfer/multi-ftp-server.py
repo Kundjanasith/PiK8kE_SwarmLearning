@@ -31,8 +31,20 @@ def handle_client(conn, addr):
         elif cmd == "UPLOAD":
             name, text = data[1], data[2]
             filepath = os.path.join(SERVER_DATA_PATH, name)
-            with open(filepath, "w") as f:
-                f.write(text)
+            # with open(filepath, "w") as f:
+            #     f.write(text)
+             with open(filepath, "wb") as f:
+                while True:
+                    # read 1024 bytes from the socket (receive)
+                    bytes_read = client_socket.recv(SIZE)
+                    if not bytes_read:    
+                        # nothing is received
+                        # file transmitting is done
+                        break
+                    # write to the file the bytes we just received
+                    f.write(bytes_read)
+                    # update the progress bar
+                    progress.update(len(bytes_read))
 
             send_data = "OK@File uploaded successfully."
             conn.send(send_data.encode(FORMAT))
