@@ -49,7 +49,7 @@ NUM_OF_ROUNDS = int(config['learning']['num_of_rounds'])
 subprocess.Popen(['python3','./transfer/flask_server.py'], close_fds=True)
 
 for i in range(NUM_OF_ROUNDS):
-    os.system('rm -rf ./transfer/models/*')
+    # os.system('rm -rf ./transfer/models/*')
     print('Communication round: #',i)
     active_ip = allConnected()
     os.system('python3 client/train.py '+str(i))
