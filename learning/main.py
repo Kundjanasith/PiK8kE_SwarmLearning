@@ -55,7 +55,7 @@ for i in range(NUM_OF_ROUNDS):
     while not os.path.exists('./client/models/round_'+str(i+1)+'.h5'):
         print('waiting local model')
         time.sleep(1)
-    time.sleep(100) #Delay for storing the local model
+    time.sleep(10) #Delay for storing the local model
     for ip in active_ip:
         os.system('python3 ./transfer/flask_client.py '+ip+' ./client/models/round_'+str(i+1)+'.h5')
     for j in range(1,len(active_ip)+1):
@@ -64,7 +64,7 @@ for i in range(NUM_OF_ROUNDS):
         while not os.path.exists('./transfer/models/worker%02d_ip-round_%d.h5'%(j,i+1)):
             print('waiting local model from worker %02d'%(j))
             time.sleep(1)
-    time.sleep(100) #Delay for storing the local model
+    time.sleep(10) #Delay for storing the local model
     os.system('python3 server/aggregate.py '+str(i+1))
         
 
