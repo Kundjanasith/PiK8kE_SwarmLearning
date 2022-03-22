@@ -9,7 +9,7 @@ class ClientThread(threading.Thread):
         print("Connection from : ", clientAddress)
         #self.csocket.send(bytes("Hi, This is from Server..",'utf-8'))
         SEPARATOR = "<SEPARATOR>"
-        received = self.csocket.recv(2048).decode()
+        received = self.csocket.recv(2048)
         ipx, filename, filesize = received.split(SEPARATOR)
         filename = os.path.basename(filename)
         filesize = int(filesize)
@@ -19,7 +19,6 @@ class ClientThread(threading.Thread):
                 if not bytes_read:    
                     break
                 f.write(bytes_read)
-                progress.update(len(bytes_read))
         self.csocket.close()
 
 LOCALHOST = "0.0.0.0"

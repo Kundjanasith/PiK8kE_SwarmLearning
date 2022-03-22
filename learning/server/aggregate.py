@@ -17,7 +17,7 @@ list_config_ip = list(config['network'])
 list_config_ip.pop(0)
 list_config_ip.pop(int(node)-1)
 NUM_NODES = len(list_config_ip)
-# NUM_NODES = 2
+NUM_NODES = 2
 NUM_NODES = NUM_NODES - 1
 
 while True:

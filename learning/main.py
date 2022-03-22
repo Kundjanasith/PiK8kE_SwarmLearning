@@ -33,6 +33,7 @@ def allConnected():
                 print(ip,'is up!')
                 res = res + 1
                 active_ip.append(ip)
+                break
             else:
                 print(ip,'is down!')
         # if res == 1:
