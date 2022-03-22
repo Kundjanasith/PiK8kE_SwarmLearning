@@ -64,10 +64,10 @@ for i in range(NUM_OF_ROUNDS):
             continue
         while not os.path.exists('./transfer/models/worker%02d_ip-round_%d.h5'%(j,i+1)):
             print('waiting local model from worker %02d'%(j))
-            time.sleep(1)
+            time.sleep(10)
     time.sleep(10) #Delay for storing the local model
     os.system('python3 server/aggregate.py '+str(i+1))
-    time.sleep(100)
+    # time.sleep(100)
         
 
 

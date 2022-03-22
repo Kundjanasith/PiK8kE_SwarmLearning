@@ -28,6 +28,7 @@ while True:
 
 for i in glob.glob('./transfer/models/*-round_'+str(num_of_round)+'.h5'):
     global_model = model.init()
+    print(i)
     global_model.load_weights(i)
     global_models.append(global_model)
 
