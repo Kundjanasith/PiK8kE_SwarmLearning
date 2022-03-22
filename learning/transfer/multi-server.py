@@ -11,7 +11,7 @@ class ClientThread(threading.Thread):
         SEPARATOR = "<SEPARATOR>"
         received = self.csocket.recv(2048)
         # received = received.decode()
-        ipx, filename, filesize = received.split(SEPARATOR)
+        ipx, filename, filesize = received.split(bytes(SEPARATOR,'UTF-8'))
         filename = os.path.basename(filename)
         filesize = int(filesize)
         with open('./transfer/models/'+ipx+'-'+filename, "wb") as f:
