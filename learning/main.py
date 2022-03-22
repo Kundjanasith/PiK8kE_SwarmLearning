@@ -46,7 +46,7 @@ def allConnected():
 
 NUM_OF_ROUNDS = int(config['learning']['num_of_rounds'])
 
-subprocess.Popen(['python3','./transfer/flask-server.py'], close_fds=True)
+subprocess.Popen(['python3','./transfer/flask_server.py'], close_fds=True)
 
 for i in range(NUM_OF_ROUNDS):
     print('Communication round: #',i)
@@ -54,7 +54,7 @@ for i in range(NUM_OF_ROUNDS):
     os.system('python3 client/train.py '+str(i))
     time.sleep(10) #Delay for storing the local model
     for ip in active_ip:
-        os.system('python3 ./transfer/flask-client.py '+ip+' ./client/models/round_'+str(i+1)+'.h5')
+        os.system('python3 ./transfer/flask_client.py '+ip+' ./client/models/round_'+str(i+1)+'.h5')
     time.sleep(10) #Delay for storing the local model
     os.system('python3 server/aggregate.py '+str(i+1))
         
