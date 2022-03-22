@@ -1,6 +1,6 @@
 import socket
 import sys 
-import configparser
+import configparser, os
 
 config = configparser.ConfigParser()
 config.read('../config.ini')

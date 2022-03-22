@@ -1,4 +1,4 @@
-import socket, threading
+import socket, threading, os
 
 class ClientThread(threading.Thread):
     def __init__(self,clientAddress,clientsocket):
