@@ -20,7 +20,7 @@ BUFFER_SIZE = 1024
 filename = sys.argv[2]
 filesize = os.path.getsize(filename)
 
-client.send(f"{ipx}{SEPARATOR}{filename}{SEPARATOR}{filesize}".encode())
+client.send(f"{ipx}{SEPARATOR}{filename}{SEPARATOR}{filesize}",'utf-8')
 with open(filename, "rb") as f:
     while True:
         bytes_read = f.read(BUFFER_SIZE)
