@@ -9,7 +9,8 @@ class ClientThread(threading.Thread):
         print("Connection from : ", clientAddress)
         #self.csocket.send(bytes("Hi, This is from Server..",'utf-8'))
         SEPARATOR = "<SEPARATOR>"
-        received = self.csocket.recv(2048).decode()
+        received = self.csocket.recv(2048)
+        received = received.decode()
         ipx, filename, filesize = received.split(SEPARATOR)
         filename = os.path.basename(filename)
         filesize = int(filesize)
