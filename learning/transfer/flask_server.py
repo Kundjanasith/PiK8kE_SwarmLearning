@@ -3,7 +3,7 @@ import os
 from flask import Flask, request, abort, jsonify, send_from_directory
 
 
-UPLOAD_DIRECTORY = "./models/"
+UPLOAD_DIRECTORY = "./transfer/models/"
 
 if not os.path.exists(UPLOAD_DIRECTORY):
     os.makedirs(UPLOAD_DIRECTORY)
