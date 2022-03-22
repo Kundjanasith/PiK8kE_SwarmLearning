@@ -3,7 +3,7 @@ import os
 from flask import Flask, request, abort, jsonify, send_from_directory
 
 
-UPLOAD_DIRECTORY = "."
+UPLOAD_DIRECTORY = "./models/"
 
 if not os.path.exists(UPLOAD_DIRECTORY):
     os.makedirs(UPLOAD_DIRECTORY)
@@ -45,4 +45,4 @@ def post_file(filename):
 
 
 if __name__ == "__main__":
-    api.run(debug=True, port=19191)
+    api.run(host="0.0.0.0", port=19191)
