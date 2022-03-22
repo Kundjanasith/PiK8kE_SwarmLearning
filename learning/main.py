@@ -52,10 +52,10 @@ for i in range(NUM_OF_ROUNDS):
     print('Communication round: #',i)
     active_ip = allConnected()
     os.system('python3 client/train.py '+str(i))
-    time.sleep(10) #Delay for storing the local model
+    time.sleep(100) #Delay for storing the local model
     for ip in active_ip:
         os.system('python3 ./transfer/flask_client.py '+ip+' ./client/models/round_'+str(i+1)+'.h5')
-    time.sleep(10) #Delay for storing the local model
+    time.sleep(100) #Delay for storing the local model
     os.system('python3 server/aggregate.py '+str(i+1))
         
 
