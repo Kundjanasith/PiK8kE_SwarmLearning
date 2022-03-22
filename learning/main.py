@@ -52,9 +52,16 @@ for i in range(NUM_OF_ROUNDS):
     print('Communication round: #',i)
     active_ip = allConnected()
     os.system('python3 client/train.py '+str(i))
+    while not os.path.exists('./client/models/round_'+str(i+1)+'.h5'):
+        print('waiting local model')
+        time.sleep(1)
     time.sleep(100) #Delay for storing the local model
     for ip in active_ip:
         os.system('python3 ./transfer/flask_client.py '+ip+' ./client/models/round_'+str(i+1)+'.h5')
+    for j in range(1,len(active_ip)+1):
+        while not os.path.exists('./transfer/models/worker'+str(j)+'_ip-round_'+str(i+1)+'.h5'):
+            print('waiting local model from worker '+str(j))
+            time.sleep(1)
     time.sleep(100) #Delay for storing the local model
     os.system('python3 server/aggregate.py '+str(i+1))
         
