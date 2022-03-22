@@ -18,9 +18,9 @@ ipx = list_config_ip[int(node)-1]
 SEPARATOR = "<SEPARATOR>"
 BUFFER_SIZE = 1024
 filename = sys.argv[2]
-filesize = str(os.path.getsize(filename))
+# filesize = str(os.path.getsize(filename))
 
-client.send(bytes(f"{ipx}{SEPARATOR}{filename}{SEPARATOR}{filesize}",'UTF-8'))
+client.send(bytes(f"{ipx}{SEPARATOR}{filename}",'UTF-8'))
 with open(filename, "rb") as f:
     while True:
         bytes_read = f.read(BUFFER_SIZE)
