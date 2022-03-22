@@ -12,7 +12,7 @@ def init():
     # x = BatchNormalization()(x)
     x = Dense(10,activation='softmax')(x)
     model = Model(model.input,x)
-    # LOSS = 'categorical_crossentropy' 
+    LOSS = 'categorical_crossentropy' 
     # lr = 0.000025
     # OPTIMIZER = SGD(learning_rate=lr, momentum=0.9, nesterov=False)
     model.compile(optimizer='adam', loss=LOSS, metrics=['accuracy'])
