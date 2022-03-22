@@ -53,7 +53,7 @@ for l in local_model.layers:
 
 local_model.save_weights('./server/models/round_'+str(num_of_round)+'.h5')
 
-os.system('rm -rf ./transfer/models/*')
+
 
 
 
