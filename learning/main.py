@@ -33,15 +33,15 @@ def allConnected():
                 print(ip,'is up!')
                 res = res + 1
                 active_ip.append(ip)
-                break
+                # break
             else:
                 print(ip,'is down!')
-        if res == 1:
-            print('P2P')
-            break
-        # if res == len(list_config_ip):
+        # if res == 1:
         #     print('P2P')
         #     break
+        if res == len(list_config_ip):
+            print('P2P')
+            break
     return active_ip
 
 NUM_OF_ROUNDS = int(config['learning']['num_of_rounds'])
