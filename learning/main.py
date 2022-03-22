@@ -67,6 +67,7 @@ for i in range(NUM_OF_ROUNDS):
             time.sleep(1)
     time.sleep(10) #Delay for storing the local model
     os.system('python3 server/aggregate.py '+str(i+1))
+    time.sleep(100)
         
 
 
